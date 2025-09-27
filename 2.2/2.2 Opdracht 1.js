@@ -1,0 +1,24 @@
+var kater,katerKlein,landschap,kever;
+var keverX;
+var keverY;
+
+function preload() {
+  kater = loadImage("images/brieck.jpg");
+  bomen = loadImage("images/bomen.jpg");
+  kever = loadImage("images/sprites/kever.png");
+}
+
+function setup() {
+  canvas = createCanvas(450,450);
+  canvas.parent();
+  keverX = 150;
+  keverY = 100;
+}
+
+function draw() {
+  background(kater);  
+  image(kater,25,25,400,400);
+  keverX+=random(0,0);
+  keverY+=random(-5,5);
+  image(kever,keverX,keverY,30,30);
+}
