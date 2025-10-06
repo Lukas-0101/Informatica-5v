@@ -1,36 +1,33 @@
-var aantalRijenRaster = 6;
-var aantalKolommenRaster = 9;
-var celGrootte;
-
-var spriteJos;
-var xJos = 400;
-var yJos = 300;
-
-function preload() {
-  brug = loadImage("images/backgrounds/dame_op_brug_1800.jpg");
-  spriteJos = loadImage("images/sprites/Jos100px/Jos_0.png");
-}
+var aantalLagen = 5;
+var breedte = 90;
+var hoogte;
 
 function setup() {
-  canvas = createCanvas(901,601);
+  hoogte = breedte / 2;
+  canvas = createCanvas(800,600);
   canvas.parent();
-  celGrootte = width / aantalKolommenRaster;
+  noLoop();
 }
 
 function draw() {
-  background(brug);
-  tekenRaster();
-  image(spriteJos,xJos,yJos);
+    tekenKamer(1);
 }
 
-function tekenRaster() {
-  push();
-  noFill();
-  stroke('grey');
-  for (var rij = 0;rij < aantalRijenRaster;rij++){
-    for (var kolom = 0; kolom < aantalKolommenRaster;kolom++){
-      rect(kolom*celGrootte,rij*celGrootte,celGrootte,celGrootte);
-    }
-  }
-  pop();
+function tekenKamer(s) {
+    scale(s);
+    fill('olive');
+    noStroke();
+    rect(0,0,800,600);
+    fill('darkkhaki');
+    rect(0,0,400,600);
+    stroke(1);
+    fill('saddlebrown');
+    rect(50,200,250,400);
+    fill('maroon');
+    rect(70,220,210,160);
+    noStroke();
+    fill('black');
+    rect(340,90,420,320);
+    //
+    translate(350,100);
 }
